@@ -7,14 +7,20 @@ import TeamStats from "./../components/TeamStats";
 
 import BottomSheet, { BottomSheetFlatList } from "@gorhom/bottom-sheet";
 import PlayerListItem from "./../components/PlayerListItem";
+import Filters from "./../components/Filters";
 
 import { players } from "../assets/data/players";
 
 export default function TabOneScreen() {
   const playerBottomSheet = useRef<BottomSheet>(null);
+  const filtersBottomSheet = useRef<BottomSheet>(null);
 
   const viewPlayers = () => {
     playerBottomSheet.current?.expand();
+  };
+
+  const openFilters = () => {
+    filtersBottomSheet.current?.expand();
   };
 
   const snapPoints = [0, "50%"];
@@ -30,10 +36,16 @@ export default function TabOneScreen() {
       </Pressable>
 
       <BottomSheet ref={playerBottomSheet} index={0} snapPoints={snapPoints}>
+        <Pressable onPress={openFilters} style={styles.buttonContainer}>
+          <Text>Filters</Text>
+        </Pressable>
         <BottomSheetFlatList
           data={players}
           renderItem={({ item }) => <PlayerListItem player={item} />}
         />
+      </BottomSheet>
+      <BottomSheet ref={filtersBottomSheet} index={0} snapPoints={snapPoints}>
+        <Filters />
       </BottomSheet>
     </SafeAreaView>
   );
