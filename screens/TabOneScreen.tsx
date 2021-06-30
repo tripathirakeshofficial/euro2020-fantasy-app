@@ -5,7 +5,10 @@ import EditScreenInfo from "../components/EditScreenInfo";
 import Field from "./../components/Field";
 import TeamStats from "./../components/TeamStats";
 
-import BottomSheet from "@gorhom/bottom-sheet";
+import BottomSheet, { BottomSheetFlatList } from "@gorhom/bottom-sheet";
+import PlayerListItem from "./../components/PlayerListItem";
+
+import { players } from "../assets/data/players";
 
 export default function TabOneScreen() {
   const playerBottomSheet = useRef<BottomSheet>(null);
@@ -27,9 +30,10 @@ export default function TabOneScreen() {
       </Pressable>
 
       <BottomSheet ref={playerBottomSheet} index={0} snapPoints={snapPoints}>
-        <View style={styles.contentContainer}>
-          <Text>Awesome 🎉</Text>
-        </View>
+        <BottomSheetFlatList
+          data={players}
+          renderItem={({ item }) => <PlayerListItem player={item} />}
+        />
       </BottomSheet>
     </SafeAreaView>
   );

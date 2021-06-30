@@ -2,7 +2,7 @@ import React from "react";
 import { ImageBackground, View, Text } from "react-native";
 
 import field from "../assets/images/field.jpg";
-import FieldPlayer from './FieldPlayer';
+import FieldPlayer from "./FieldPlayer";
 
 const players: { [key: string]: null[] } = {
   FWD: [null, null, null],
