@@ -5,11 +5,10 @@ import EditScreenInfo from "../components/EditScreenInfo";
 import Field from "./../components/Field";
 import TeamStats from "./../components/TeamStats";
 
-import BottomSheet, { BottomSheetFlatList } from "@gorhom/bottom-sheet";
-import PlayerListItem from "./../components/PlayerListItem";
-import Filters from "./../components/Filters";
+import BottomSheet from "@gorhom/bottom-sheet";
 
-import { players } from "../assets/data/players";
+import Filters from "./../components/Filters";
+import PlayersList from "./../components/PlayersList";
 
 export default function TabOneScreen() {
   const playerBottomSheet = useRef<BottomSheet>(null);
@@ -39,10 +38,7 @@ export default function TabOneScreen() {
         <Pressable onPress={openFilters} style={styles.buttonContainer}>
           <Text>Filters</Text>
         </Pressable>
-        <BottomSheetFlatList
-          data={players}
-          renderItem={({ item }) => <PlayerListItem player={item} />}
-        />
+        <PlayersList />
       </BottomSheet>
       <BottomSheet ref={filtersBottomSheet} index={0} snapPoints={snapPoints}>
         <Filters />
@@ -67,5 +63,4 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     marginTop: "auto",
   },
-  contentContainer: {},
 });
