@@ -1,8 +1,8 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, Pressable } from "react-native";
 import { Player } from "../types";
-import { useRecoilState } from "recoil";
-import { myPlayersState } from "../atoms/MyTeam";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { myPlayersState, myFormationState } from "../atoms/MyTeam";
 
 interface Props {
   player: Player;
@@ -10,13 +10,21 @@ interface Props {
 
 const PlayerListItem = ({ player }: Props) => {
   const [myPlayers, setMyPlayers] = useRecoilState(myPlayersState);
+  const myFormation = useRecoilValue(myFormationState);
+
+  const numberOfPlayersOnPosition = myPlayers.filter(
+    (p) => p.position == player.position
+  ).length;
 
   const onPress = () => {
     setMyPlayers((curPlayers) => {
       if (curPlayers.some((p) => p.id === player.id)) {
         return curPlayers.filter((p) => p.id !== player.id);
       } else {
-        return [...curPlayers, player];
+        if (numberOfPlayersOnPosition < myFormation[player.position]) {
+          return [...curPlayers, player];
+        }
+        return curPlayers;
       }
     });
   };
