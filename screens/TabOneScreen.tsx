@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, Suspense } from "react";
 import { StyleSheet, SafeAreaView, Pressable, Text, View } from "react-native";
 
 import EditScreenInfo from "../components/EditScreenInfo";
@@ -38,7 +38,9 @@ export default function TabOneScreen() {
         <Pressable onPress={openFilters} style={styles.buttonContainer}>
           <Text>Filters</Text>
         </Pressable>
-        <PlayersList />
+        <Suspense fallback={<Text>Loading</Text>}>
+          <PlayersList />
+        </Suspense>
       </BottomSheet>
       <BottomSheet ref={filtersBottomSheet} index={0} snapPoints={snapPoints}>
         <Filters />

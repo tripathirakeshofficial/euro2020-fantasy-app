@@ -1,9 +1,43 @@
 import { atom, selector } from "recoil";
-import { players } from "./../assets/data/players";
 
-export const allPlayersState = atom({
+const pos2pos = {
+  Attacker: "FWD",
+  Defender: "DEF",
+  Midfielder: "MID",
+  Goalkeeper: "GK",
+};
+
+export const allPlayersState = selector({
   key: "allPlayersState",
-  default: players,
+  get: async () => {
+    try {
+      const response = await fetch(
+        "https://api-football-v1.p.rapidapi.com/v3/players?league=4&season=2020&page=2",
+        {
+          method: "GET",
+          headers: {
+            "x-rapidapi-key":
+              "3507673a76msh26739186297e792p15880djsne3a23753c349",
+            "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
+          },
+        }
+      );
+
+      const json = await response.json();
+
+      return json.response.map((entry) => ({
+        id: entry.player.id,
+        name: entry.player.name,
+        match: "TBA v TBA",
+        price: 11000000,
+        position: pos2pos[entry.statistics[0].games.position],
+        totalPoints: 29,
+      }));
+    } catch (e) {
+      console.log(e);
+      return [];
+    }
+  },
 });
 
 export const positionFilterState = atom({
