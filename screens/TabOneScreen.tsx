@@ -65,11 +65,13 @@ export default function TabOneScreen() {
   );
 }
 
+console.disableYellowBox = true;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    paddingTop: Platform.OS === "android" ? 25 : 0,
+    paddingTop: Platform.OS === "android" ? 50 : 0,
     backgroundColor: "#72cc5e",
   },
   buttonContainer: {

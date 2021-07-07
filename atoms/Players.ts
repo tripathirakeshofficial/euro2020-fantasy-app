@@ -12,7 +12,7 @@ export const allPlayersState = selector({
   get: async () => {
     try {
       const response = await fetch(
-        "https://api-football-v1.p.rapidapi.com/v3/players?league=4&season=2020&page=2",
+        "https://api-football-v1.p.rapidapi.com/v3/players?league=4&season=2020&page=3",
         {
           method: "GET",
           headers: {

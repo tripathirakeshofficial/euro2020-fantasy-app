@@ -11,7 +11,7 @@ const TeamStats = () => {
     <View style={styles.container}>
       <View style={styles.valueContainer}>
         <Text style={styles.label}>Players</Text>
-        <Text style={styles.value}>{nofPlayers} / 15 </Text>
+        <Text style={styles.value}>{nofPlayers} /11 </Text>
       </View>
 
       <View style={styles.valueContainer}>
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   },
   value: {
     fontSize: 20,
-    fontWeight: "bold",
+    //fontWeight: "bold",
   },
 });
 

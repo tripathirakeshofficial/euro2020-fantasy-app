@@ -9,8 +9,6 @@ const Filters = () => {
   const [positionFilter, setPositionFilter] =
     useRecoilState(positionFilterState);
 
-  console.log(positionFilter);
-
   const onFilterPress = (position: string) => {
     setPositionFilter((curPositionFilter) => {
       if (curPositionFilter.includes(position)) {
@@ -57,7 +55,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   text: {
-    fontWeight: "bold",
+    //fontWeight: "bold",
   },
 });
 

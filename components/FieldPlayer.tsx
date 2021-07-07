@@ -23,7 +23,7 @@ const FieldPlayer = (props: FieldPlayerProps) => {
         style={{
           backgroundColor: "#333333bb",
           color: "white",
-          fontWeight: "bold",
+          //fontWeight: "bold",
           fontSize: 12,
           padding: 2,
           paddingHorizontal: 7,

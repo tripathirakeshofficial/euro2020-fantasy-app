@@ -77,13 +77,13 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   name: {
-    fontWeight: "bold",
+    //fontWeight: "bold",
   },
   position: {
     fontSize: 10,
   },
   points: {
-    fontWeight: "bold",
+    //fontWeight: "bold",
     fontSize: 18,
   },
   colContainer: {
