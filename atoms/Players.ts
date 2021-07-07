@@ -29,9 +29,9 @@ export const allPlayersState = selector({
         id: entry.player.id,
         name: entry.player.name,
         match: "TBA v TBA",
-        price: 11000000,
+        price: Math.floor(Math.random() * (15300000 - 5300000 + 1) + 5300000),
         position: pos2pos[entry.statistics[0].games.position],
-        totalPoints: 29,
+        totalPoints: Math.floor(Math.random() * (60 - 10 + 1) + 10),
       }));
     } catch (e) {
       console.log(e);

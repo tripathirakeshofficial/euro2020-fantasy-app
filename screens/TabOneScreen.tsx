@@ -1,5 +1,12 @@
 import React, { useRef, Suspense } from "react";
-import { StyleSheet, SafeAreaView, Pressable, Text, View } from "react-native";
+import {
+  ActivityIndicator,
+  StyleSheet,
+  SafeAreaView,
+  Pressable,
+  Text,
+  View,
+} from "react-native";
 
 import EditScreenInfo from "../components/EditScreenInfo";
 import Field from "./../components/Field";
@@ -38,7 +45,16 @@ export default function TabOneScreen() {
         <Pressable onPress={openFilters} style={styles.buttonContainer}>
           <Text>Filters</Text>
         </Pressable>
-        <Suspense fallback={<Text>Loading</Text>}>
+        <Suspense
+          fallback={
+            <View style={styles.loadingContainer}>
+              <ActivityIndicator
+                size="large"
+                color="#72cc5e"
+              ></ActivityIndicator>
+            </View>
+          }
+        >
           <PlayersList />
         </Suspense>
       </BottomSheet>
@@ -63,6 +79,10 @@ const styles = StyleSheet.create({
     padding: 10,
     alignItems: "center",
     borderRadius: 50,
-    marginTop: "auto",
+    marginTop: 5,
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: "center",
   },
 });

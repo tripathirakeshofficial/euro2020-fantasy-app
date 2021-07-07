@@ -8,7 +8,6 @@ import { myPlayersByPosition } from "./../atoms/MyTeam";
 
 const Field = () => {
   const players = useRecoilValue(myPlayersByPosition);
-  console.log(players);
 
   return (
     <ImageBackground
