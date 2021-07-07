@@ -8,7 +8,12 @@
   </a>
 </p>
 
-> EURO 2020 Football Fantasy App using React Native & Recoil.
+> EURO 2020 Football Fantasy App using React Native & Recoil. 
+> 
+> In 𝐑𝐞𝐚𝐜𝐭 𝐍𝐚𝐭𝐢𝐯𝐞 𝐔𝐈: Setting up a React Native project using Expo, Rendering built-in elements/components, Creating functional components & Hooks, using props, state, bottom sheet & Typescript. In 𝐑𝐞𝐜𝐨𝐢𝐥: Using Global State Management integrating with React Native, using atoms & selectors. 
+> 
+> In this basic 𝐃𝐞𝐦𝐨, player details are fetched using #RandomAPI. The players can be selected and filtered using position. The Formation for demo purpose is set at 4-3-3. The Total cost is also tracked.
+
 
 ### ✨ [Demo](https://youtu.be/65-M5fyF6s0)
 
